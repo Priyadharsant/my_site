@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Calculator</title>
+    <style>
+        button {
+            box-shadow: 0 4px 20px rgba(255, 0, 128, 0.7); 
+            background: linear-gradient(to right, #ff4900, #ce00ff);
+            border: 2px solid #ff0066;
+            border-radius: 10px;
+            padding: 10px;
+            display: inline-block;
+        }
+        div {
+            box-shadow: 0 4px 20px #4b4232; 
+            border-radius: 10px;
+            height: 150px;
+            padding: 20px;
+            width: 250px;
+            background:#ffffff56; 
+            item-align: center;
+        }
+        input,select {
+            box-shadow: 0 4px 20px rgba(0, 255, 255, 0.8); 
+            background: linear-gradient(to right, #ff1f0082, #ce00ff82);
+            border-radius: 5px;
+            padding: 5px;
+            
+            display: inline-block;
+        }
+        
+        input::placeholder{
+            color: black;
+        }
+        #a, #b {
+            width: 50px;
+        }
+        .res {
+            box-shadow: 0 4px 20px rgba(255, 204, 0, 0.8); 
+            background: linear-gradient(to right, #ff4900, #ce00ff);
+            padding: 10px;
+            display: inline-block;
+            border-radius: 10px;
+        }
+        .tt {
+            box-shadow: 0 4px 20px #4b4232; 
+            background:#ffffff56;
+            padding: 5px;
+            display: inline-block;
+            border-radius: 10px;
+        }  
+        hr{
+            background: linear-gradient(to right, #ff4900, #ce00ff);
+            height:2px;
+            
+          
+            
+        }
+        .bd{
+            padding-top:40px;
+        }
+        body{
+            background: linear-gradient(to right, #ff4900, #ce00ff);
+        }   </style>
+</head>
+<body>
+    <center>
+        <h1 class="tt">Simple Calculator</h1>
+        <hr class="gradient-line">
+        <br>
+        <br>
+    </center>
+    <center>
+        <div>
+            <center class="bd">
+                <input oninput="cal()" type="number" id="a" placeholder="a value" size="5">
+                <select oninput="cal()" id="arm"  size="5">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                    <option value="%">%</option>
+                </select>
+                <input oninput="cal()" type="number" id="b" placeholder="b value" size="3">
+                
+                <br>
+                <p id="ans"></p>
+            </center>
+            
+        </div>
+    </center>
+    <script>
+        function cal() {
+            var a = parseFloat(document.getElementById("a").value);
+            var arm = document.getElementById("arm").value;
+            var b = parseFloat(document.getElementById("b").value);
+            var ans = document.getElementById("ans");
+            var answer = 0;
+            var f = 0;
+
+            if (arm === "+") {
+                answer = a + b;
+            } else if (arm === "-") {
+                answer = a - b;
+            } else if (arm === "*") {
+                answer = a * b;
+            } else if (arm === "/") {
+                answer = a / b;
+            } else if (arm === "%") {
+                answer = a % b;
+            } else {
+                ans.innerHTML = "Invalid Operator";
+                f = 1;
+            }
+
+            if (f === 0) {
+            
+                ans.innerHTML = "Answer = " + answer;
+            }
+            ans.className = "res";
+        }
+    </script>
+</body>
+</html>
