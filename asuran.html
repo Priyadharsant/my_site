@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+        }
+        .channel-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: orange;
+        }
+        .description {
+            margin-bottom: 20px;
+        }
+        .content-highlights {
+            margin-bottom: 20px;
+        }
+        .highlight-item {
+            margin-bottom: 10px;
+        }
+        .mission {
+            margin-bottom: 20px;
+        }
+        .join-community {
+            margin-bottom: 20px;
+        }
+        .channel-link {
+            color: orange;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            background-size: 200% 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            animation: gradientAnimation 10s ease infinite alternate; 
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0%;
+            }
+            100% {
+                background-position: 100%;
+            }
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px #ff7300;
+            width: 400px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 40px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            width: 100%;
+            padding-right: 1px;
+        }
+
+        .nav {
+            width: 20%;
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            position: absolute;
+            top: 7%;
+            right: 5%;
+            background: white;
+            box-shadow: 0 8px 20px #ff7300;
+            border-radius: 10px;
+            padding: 5px;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        .nav.show {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav button {
+            background: none;
+            border: none;
+            color: #ff7e5f;
+            font-size: 15px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .nav button:hover {
+            color: #feb47b;
+        }
+
+        .menu-button {
+            background: none;
+            border: none;
+            color: #ff7e5f;
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .menu-button:hover {
+            color: #feb47b;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #ff7e5f;
+            box-shadow: 0 0 8px #ff7300;
+        }
+
+        label {
+            position: absolute;
+            left: 15px;
+            top: 12px;
+            color: #999;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        input:focus + label,
+        input:not(:placeholder-shown) + label {
+            top: -10px;
+            left: 15px;
+            font-size: 12px;
+            color: #ff7e5f;
+        }
+
+        button  {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #feb47b, #ff7e5f);
+        }
+
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        th {
+            background-color: #ff7e5f;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #feb47b;
+            color: white;
+        }
+
+        .about-section, .contact-section {
+            background: #f9f9f9;
+            padding: 40px;
+            border-radius: 30px;
+            margin-top: auto;
+            width: 80%;
+            text-align: left;
+            overflow: hidden;
+            height: 0;
+            opacity: 0;
+            box-shadow: 0 0 10px #ff5e00;
+            transition: opacity 0.5s ease, height 0.8s ease;
+        }
+
+        .about-section.show, .contact-section.show {
+            opacity: 1;
+            height: auto;
+        }
+
+        .about-section h2, .contact-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 10px;
+        }
+
+        .about-content, .contact-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 5px solid #feb47b;
+            box-shadow: 0 0 10px #ff7300;
+        }
+
+        .about-content img, .contact-content img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 5px solid #feb47b;
+            box-shadow: 0 0 10px #ff7300;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .slide-in {
+            animation: slideIn 1s ease;
+        }
+
+        @media (max-width: 100px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }            
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            h1, h2 {
+                font-size: 18px;
+            }
+
+            input {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            button {
+                padding: 10px 20px;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+
+            .nav {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+      <a href ="https://www.youtube.com/@KMVASURAN">
+        <img class="logo" src="https://i.postimg.cc/52dkQxXd/IMG-20240706-WA0359.jpg" alt="">
+        </a>
+        <h2>KMV Asuran</h2>
+        
+        <button class="menu-button" onclick="toggleNav()">&#9776;</button>
+        <div class="nav" id="nav">
+            <a href="#homeSection">
+                <button onclick="toggleSection('homeSection')">Home</button>
+            </a>
+            <a href="#aboutSection">
+                <button onclick="toggleSection('aboutSection')">About</button>
+            </a>
+            <a href="#contactSection">
+                <button onclick="toggleSection('contactSection')">Contact</button>
+            </a>
+        </div>
+    </div>
+    <hr>
+    <div class="channel-summary">
+        <div class="channel-name">KMV Asuran YouTube Channel</div>
+        <div class="description">
+            <p>KMV Asuran is a vibrant YouTube channel that offers an engaging blend of gaming content, daily vlogs, and short videos. The channel, hosted by KMV Asuran, provides a mix of entertainment and insights into the creator's life, catering to a diverse audience with varied interests.</p>
+        </div>
+        
+        <div class="content-highlights">
+            <div class="highlight-item">
+                <strong>Content Highlights:</strong>
+            </div>
+            <div class="highlight-item">
+                <strong>1. Gaming Videos:</strong> KMV Asuran features extensive gameplay from popular games such as Free Fire and BGMI. The channel includes both live streams and recorded gameplay sessions, showcasing high-level play, strategies, and tips for fellow gamers.
+            </div>
+            <div class="highlight-item">
+                <strong>2. Daily Vlogs:</strong> The channel offers a glimpse into the personal life of KMV Asuran through daily vlogs. These videos cover a range of activities, from daily routines to special events and adventures, allowing viewers to connect with the creator on a personal level.
+            </div>
+            <div class="highlight-item">
+                <strong>3. Short Videos and Challenges:</strong> KMV Asuran regularly uploads short, engaging videos that often include challenges, humorous content, and quick updates. These bite-sized videos are perfect for viewers looking for quick entertainment.
+            </div>
+            <div class="highlight-item">
+                <strong>4. Interactive Content:</strong> KMV Asuran actively engages with the community through Q&A sessions, live chats, and viewer requests. The channel fosters a sense of community by responding to comments and incorporating viewer feedback into future content.
+            </div>
+            <div class="highlight-item">
+                <strong>5. Collaborations:</strong> The channel occasionally collaborates with other YouTubers and content creators, bringing fresh and diverse content to the audience. These collaborations add an exciting dynamic to the channel’s offerings.
+            </div>
+        </div>
+
+        <div class="mission">
+            <strong>Mission:</strong>
+            <p>KMV Asuran aims to entertain and engage viewers through a variety of content, from intense gaming sessions to personal vlogs. The channel's goal is to create a fun and interactive environment where viewers can enjoy high-quality entertainment and feel a part of the KMV Asuran community.</p>
+        </div>
+
+        <div class="join-community">
+            <strong>Join the Community:</strong>
+            <p>Subscribe to KMV Asuran for regular uploads and become part of a growing community that enjoys gaming, vlogs, and engaging content. Hit the <span class="channel-link">notification bell</span> to stay updated with the latest videos and live streams!</p>
+        </div>
+
+        <div class="channel-link">
+            <a href="https://www.youtube.com/@KMVASURAN" target="_blank"><button>Visit channel </button></a>
+        </div>
+        <hr>
+        <br>
+    </div>
+
+    
+    <button onclick="toggleRegistration()">Register now </button>
+    <div id="registrationForm" style="display:none;">
+       <h1>Registration Form</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Full Name</td>
+                    <td>Enter your full name</td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td>Enter your last name</td>
+                </tr>
+                <tr>
+                    <td>Date of Birth</td>
+                    <td>Enter your date of birth</td>
+                </tr>
+                <tr>
+                    <td>Username</td>
+                    <td>Choose a username</</tr>
+                <tr>
+                    <td>Email</td>
+                    <td>Enter your email address</td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td>Choose a password</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <form>
+            <div class="input-group">
+                <input type="text" id="full-name" name="full-name" placeholder=" " required>
+                <label for="full-name">Full Name</label>
+            </div>
+            <div class="input-group">
+                <input type="text" id="last-name" name="last-name" placeholder=" " required>
+                <label for="last-name">Last Name</label>
+            </div>
+            <div class="input-group">
+                <input type="date" id="dob" name="dob" placeholder=" " required>
+                <label for="dob">Date of Birth</label>
+            </div>
+            <div class="input-group">
+                <input type="text" id="username" name="username" placeholder=" " required>
+                <label for="username">Username</label>
+            </div>
+            <div class="input-group">
+                <input type="email" id="email" name="email" placeholder=" " required>
+                <label for="email">Email</label>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" name="password" placeholder=" " required>
+                <label for="password">Password</label>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</div>
+
+<div class="about-section" id="aboutSection">
+    <h2>About KMV Asuran YouTube Channel</h2>
+    <div class="about-content">
+        <img src="https://i.postimg.cc/52dkQxXd/IMG-20240706-WA0359.jpg" alt="KMV Asuran Logo">
+        <p>
+            The "@KMVASURAN" YouTube channel provides an engaging mix of gaming content, daily vlogs, and short videos. It features gameplay from popular games like Free Fire and BGMI, offering both live streams and recorded gameplay sessions. The channel also includes personal vlogs, providing a glimpse into the creator's daily life and various adventures. Additionally, it features challenge videos and humorous content, aiming to entertain a broad audience. The channel's diverse content and regular updates keep viewers engaged and entertained. 
+        </p>
+    </div>
+    <div>
+        <a href="https://www.youtube.com/@KMVASURAN" target="_blank"><button>Visit channel</button></a>
+    </div>
+</div>
+
+<div class="contact-section" id="contactSection">
+    <h2>Contact Us</h2>
+    <div class="contact-content">
+        <a href="https://discord.com/invite/bYPVpvF6" target="_blank">
+            <img src="https://i.postimg.cc/3JjDP62N/IMG-20240708-083022.png" alt="Discord">
+        </a>
+        <a href="https://www.youtube.com/@KMVASURAN" target="_blank">
+            <img src="https://i.postimg.cc/8PkmxKgT/youtube-logo-youtube-logo-transparent-youtube-icon-transparent-free-free-png.png" alt="Instagram">
+        </a>
+        <a href="https://chat.whatsapp.com/FrI6CHmGySiCle3SiNl5f4" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        </a>
+    </div>
+</div>
+
+<script>
+    function toggleNav() {
+        var nav = document.getElementById('nav');
+        nav.classList.toggle('show');
+    }
+
+    function toggleSection(sectionId) {
+        var homeSection = document.getElementById('homeSection');
+        var aboutSection = document.getElementById('aboutSection');
+        var contactSection = document.getElementById('contactSection');
+
+        if (sectionId === 'homeSection') {
+            aboutSection.classList.remove('show');
+            contactSection.classList.remove('show');
+        } else if (sectionId === 'aboutSection') {
+            aboutSection.classList.toggle('show');
+            contactSection.classList.remove('show');
+        } else if (sectionId === 'contactSection') {
+            contactSection.classList.toggle('show');
+            aboutSection.classList.remove('show');
+        }
+    }
+
+    function toggleRegistration() {
+        var form = document.getElementById('registrationForm');
+        if (form.style.display === 'none' || form.style.display === '') {
+            form.style.display = 'block';
+        } else {
+            form.style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>
