@@ -5,82 +5,257 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Priyadharsan</title>
     <link rel="icon" type="image/*" href="https://i.postimg.cc/vgn6PLRD/Screenshot-2024-1125-163747.png">
-    <link rel="stylesheet" href="home_style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Londrina+Sketch&family=Mystery+Quest&family=Nosifer&family=Parkinsans:wght@300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Rubik+Dirt&family=Sancreek&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(90deg, #333, #444);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h2 {
+            margin: 0;
+            font-size: 24px;
+            padding-left: 10px;
+        }
+
+        header button {
+            font-size: 20px;
+            border: none;
+            background: none;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        header button:hover {
+            transform: scale(1.2);
+            color: #ff6347;
+        }
+
+        main {
+            padding: 80px 20px 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        section h2 {
+            font-size: 28px;
+            text-align: left;
+            padding-left: 20px;
+            color: #333;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #ff6347;
+        }
+
+        section p {
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+
+        #skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            opacity: 0;
+            animation: fadeIn 2.5s forwards;
+        }
+
+        .skill {
+            background: #333;
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            text-align: center;
+            width: 150px;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideUp 0.5s forwards;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .skill:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .skill:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .skill:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .skill:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        .skill:nth-child(5) {
+            animation-delay: 1s;
+        }
+
+        .skill:hover {
+            background-color: #ff6347;
+            color: white;
+        }
+
+        #projects {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            opacity: 0;
+            animation: fadeIn 3s forwards;
+        }
+
+        .project {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            text-align: center;
+            width: 250px;
+            transition: transform 0.3s ease;
+        }
+
+        .project:hover {
+            transform: scale(1.05);
+        }
+
+        .project h3 {
+            margin: 10px 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links img {
+            width: 40px;
+            height: 40px;
+            filter: grayscale(100%);
+            transition: filter 0.3s, transform 0.3s;
+        }
+
+        .social-links img:hover {
+            filter: grayscale(0%);
+            transform: scale(1.2);
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 40px;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div id="title"> 
-        <img id="tlogo" src="https://i.postimg.cc/vgn6PLRD/Screenshot-2024-1125-163747.png" alt="Logo">
-        <h2 class="title">Priyadharsan</h2>
-        <button id="nav_button">&#9776;</button>
-    </div>
-    <br>
-    <hr>
-    <br>
-    <div id="part">
-        <h2 id="t2">About Me</h2>
-        <hr>
-        <p id="about_content">
-            Hello! I’m Priyadharsan, a passionate B.Tech student specializing in Artificial Intelligence and Data Science at Velammal Engineering College. With a strong foundation in programming and mathematics, I am driven by the ambition to excel in the tech world and secure a position at leading companies like Google, TCS, Zoho, or Microsoft. My journey includes hands-on experience with Python, Html, CSS, Javascript and C, as I continuously strive to expand my knowledge by learning advanced Python, CSS, and other technologies. I believe in the power of hard work, as reflected in my academic achievements, and I’m keen on leveraging placement opportunities to kickstart a rewarding career. Beyond academics, I enjoy exploring tech innovations and engaging with platforms like A2D, Code io, Tech SuperStar, and Tech Tamil for inspiration.
-        </p>
-    </div>
-    <br>
-    <div id="part">
-        <h2 id="t2">Skills</h2>
-        <hr>
-        <ol>
-            <li><img src="https://i.postimg.cc/9zKYVnPY/IMG-20241124-214429.png" class="skill-img" alt="C"/>C</li>
-            <li><img src="https://i.postimg.cc/hhS0pmDV/Screenshot-2024-1124-212648.png" class="skill-img" alt="Python"/>Python</li>
-            <li><img src="https://i.postimg.cc/RNhLzznF/IMG-20241124-213221.png" class="skill-img" alt="HTML"/>HTML</li>
-            <li><img src="https://i.postimg.cc/5j0CXS9K/Screenshot-2024-1124-213156.png" class="skill-img" alt="CSS"/>CSS</li>
-            <li><img src="https://i.postimg.cc/ykGX1rFT/IMG-20241124-213335.png" class="skill-img" alt="JavaScript"/>JavaScript</li>
-        </ol>
-    </div>
-    <br>
-    <center>
-    <div id="part" >
-        <h2 id="t2">My Projects</h2>
-        <hr>
-        <div id="prt">
-        <a href="asuran.html ">
-            <div id="project">
-            
-                <img src='https://i.postimg.cc/52dkQxXd/IMG-20240706-WA0359.jpg' border='0' > 
-                <br>
-                <hr>
-                <p id="project_name" style="text-decoration:none;">KMV Asuran</p>
-             </div>
-          </a>
-          <a href="cal.html ">
-            <div id="project">
-            
-                <img src='https://i.postimg.cc/sM3pxrCY/IMG-20250109-194852.png' border='0' >
-                <br>
-                <hr>
-                <p id="project_name" style="text-decoration:none;">Stylish Calculator</p>
-             </div>
-          </a>
-           </div>  
-   </div>
-   </center >
-    <div id="logo">
-        <h3 id="t2">Contact Us</h3>
-        <hr>
-        <center>
-            <a href="https://github.com/Priyadharsan852484" target="_blank">
-                <img src="https://i.postimg.cc/NyDzFJy8/images.png" alt="GitHub">
+    <header>
+        <h2>Priyadharsan</h2>
+        <button style="margin-right:29px;">&#9776;</button>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hello! I am Priyadharsan, a passionate developer specializing in AI, data science, and full-stack development. I am dedicated to building solutions that make a difference!</p>
+        </section>
+
+        <section id="skills">
+            <h2>My Skills</h2>
+            <div class="skill">Python</div>
+            <div class="skill">C</div>
+            <div class="skill">Javascript</div>
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+        </section>
+
+        <section id="projects">
+            <h2>My Projects</h2>
+            <a href="asuran.html">
+            <div class="project">
+                <h3>KMV ASURAN</h3>
+                <p>Website for gaming YouTuber</p>
+            </div>
             </a>
-            <a href="https://in.linkedin.com/in/priyadharsan-t-2b5810327" target="_blank">
-                <img src="https://i.postimg.cc/mt7170bs/linkedin-black-logo-icon.png" alt="LinkedIn">
+            <a href="cal.html">
+            <div class="project">
+                <h3>Simple Calculator</h3>
+                <p>Simple mathematical function website </p>
+            </div>
             </a>
-            <a href="https://onecompiler.com/users/42j8ym45r" target="_blank">
-                <img src="https://i.postimg.cc/c42VBvh4/IMG-20241124-201123.png" alt="OneCompiler">
-            </a>
-            <br>
-            <p>©All Copyright received.</p>
-        </center>
-    </div>
+        </section>
+
+        <section>
+            <h2>Connect with Me</h2>
+            <div class="social-links">
+                <a href="https://github.com/Priyadharsan852484" target="_blank">
+                    <img src="https://img.icons8.com/ios-filled/50/github.png" alt="GitHub">
+                </a>
+                <a href="https://in.linkedin.com/in/priyadharsan-t-2b5810327" target="_blank">
+                    <img src="https://img.icons8.com/ios-filled/50/linkedin.png" alt="LinkedIn">
+                </a>
+                <a href="https://onecompiler.com/users/42j8ym45r" target="_blank">
+                    <img src="https://img.icons8.com/ios-filled/50/code.png" alt="OneCompiler">
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Priyadharsan. All rights not reserved.</p>
+    </footer>
 </body>
-</html>
+    </html>
