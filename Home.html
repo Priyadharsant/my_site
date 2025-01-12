@@ -10,12 +10,26 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: rgb(238,174,202);
-background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+            background:linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
             color: #333;
-            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
-        
+
+        main {
+            flex: 1;
+            padding: 80px 20px 20px;
+        }
+
+        footer {
+            background: #ff5f2b;
+            width: 100%;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
         header {
             background: #158cff;
             color: white;
@@ -25,7 +39,7 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
             padding: 10px 20px;
             position: sticky ;
             top: 0;
-            width: 100%;
+            width: 90%;
             z-index: 1000;
             box-shadow: 0 4px 10px #158cff89;
         }
@@ -56,7 +70,8 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
 
         section {
             margin-bottom: 40px;
-            background: #ffffff88 ;
+            background: #ffffff88;
+            
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
@@ -181,14 +196,6 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
             transform: scale(1.2);
         }
 
-        footer {
-            background: #ff5f2b;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            margin-top: 40px;
-        }
-
         @keyframes fadeIn {
             to {
                 opacity: 1;
@@ -203,10 +210,10 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
         }
     </style>
 </head>
-<body>
+<body value=1>
     <header>
         <h2>Priyadharsan</h2>
-        <button style="margin-right:29px;">&#9776;</button>
+        <button onclick="change_theme()" style="margin-right:10px;">🎨</button>
     </header>
 
     <main>
@@ -256,9 +263,35 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
             </div>
         </section>
     </main>
+    <select id="eng" style="display:none;">
+        <option value="0">0</option>
+    </select>
+    <p id="en" ></p>
 
     <footer>
         <p>© 2025 Priyadharsan. All rights not reserved.</p>
     </footer>
 </body>
-    </html>
+<script>
+    var f=0
+    function change_theme(){
+        const body =document.body
+       if (f%4==0){ body.style.background='linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%)'
+       f=f+1
+       }
+       else if(f%4==1){
+           body.style.background='linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%'
+               f=f+1
+       }
+       else if(f%4==2){
+           body.style.background='linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%)'
+           f+=1
+       }
+       else if(f%4==3){
+           body.style.background='linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%)'
+           f+=1
+       }
+
+    }
+</script>
+</Html>
