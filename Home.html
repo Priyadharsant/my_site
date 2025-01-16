@@ -52,6 +52,7 @@
 
         header h2 {
             margin: 0;
+            color:#bfeaff ;
             font-size: 24px;
             padding-left: 10px;
         }
@@ -265,7 +266,7 @@
 </head>
 <body value=1>
     <header onclick="change_theme()">
-        <h2>Priyadharsan</h2>
+        <h2 id="tt">Priyadharsan</h2>
       <!--  <button onclick="change_theme()" style="margin-right:10px;">🎨</button>-->
     </header>
 
@@ -342,26 +343,70 @@
   "image": "https://i.postimg.cc/zLsXb8YM/IMG-20250110-093720.jpg"
 }
 </script>
-<script>
-    var f=0
-    function change_theme(){
-        const body =document.body
-       if (f%4==0){ body.style.background='linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%)'
-       f=f+1
-       }
-       else if(f%4==1){
-           body.style.background='linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%'
-               f=f+1
-       }
-       else if(f%4==2){
-           body.style.background='linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%)'
-           f+=1
-       }
-       else if(f%4==3){
-           body.style.background='linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%)'
-           f+=1
-       }
 
+    <script>
+    var f = 1;
+    function change_theme() {
+        const body = document.body;
+        const header = document.querySelector('header');
+        const tt=document.getElementById('tt');
+        const h2 = header.querySelector('h2'); // Targeting h2 inside header specifically
+        const sections = document.querySelectorAll('section');
+        const footer = document.querySelector('footer');
+        const title = document.querySelector('title');
+        const h2Elements = document.querySelectorAll('h2');
+        const pElements = document.querySelectorAll('p');
+
+        if (f % 4 == 0) {
+            // Default theme
+            body.style.background = 'linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%)';
+            header.style.background = '#158cff';
+            footer.style.background = '#ff5f2b';
+            sections.forEach(section => section.style.background = '#ffffff88');
+            title.style.color = '#158cff';
+            h2.style.color = '#fff'; // White color for h2 in header
+            h2Elements.forEach(h2 => h2.style.color = '#ff9d00');
+            pElements.forEach(p => p.style.color = '#333');
+             tt.style.color = '#bfeaff'; 
+            f += 1;
+        } else if (f % 4 == 1) {
+            // Dark theme
+            body.style.background = '#121212';
+            header.style.background = '#333333';
+            footer.style.background = '#1f1f1f';
+            sections.forEach(section => section.style.background = 'rgba(255, 255, 255, 0.1)');
+            title.style.color = '#fff';
+            h2.style.color = '#ff9d00'; // Gold color for h2 in header
+            h2Elements.forEach(h2 => h2.style.color = '#ff9d00');
+            pElements.forEach(p => p.style.color = '#fff');
+           // tt.style.color = '';
+            f += 1;
+        } else if (f % 4 == 2) {
+            // Gradient theme 1
+            body.style.background = 'linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%)';
+            header.style.background = '#ff6347';
+            footer.style.background = '#fa8072';
+            sections.forEach(section => section.style.background = '#ffffffb3');
+            title.style.color = '#ff6347';
+            h2.style.color = '#fff'; // White color for h2 in header
+            h2Elements.forEach(h2 => h2.style.color = '#ff6347');
+            pElements.forEach(p => p.style.color = '#333');
+            tt.style.color = '#ffd5bf';
+            f += 1;
+        } else if (f % 4 == 3) {
+            // Gradient theme 2
+            body.style.background = 'linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%)';
+            header.style.background = '#3cb371';
+            footer.style.background = '#228b22';
+            sections.forEach(section => section.style.background = '#ffffffcc');
+            title.style.color = '#3cb371';
+            h2.style.color = '#fff'; // White color for h2 in header
+            h2Elements.forEach(h2 => h2.style.color = '#3cb371');
+            pElements.forEach(p => p.style.color = '#333');
+            tt.style.color = '#d5ffdf';
+            f += 1;
+        }
     }
 </script>
+
                 </Html>
