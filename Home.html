@@ -16,7 +16,7 @@
             margin: 0;
             font-family: Arial, sans-serif;
             background:linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
-            color: #333;
+           color: #333;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
@@ -44,6 +44,7 @@
             padding: 10px 20px;
             position: sticky ;
             top: 0;
+            backdrop-filter:blur(20px;)
             width: 90%;
             z-index: 1000;
             box-shadow: 0 4px 10px #158cff89;
@@ -76,8 +77,9 @@
         section {
             margin-bottom: 40px;
             background: #ffffff88;
-            
+            backdrop-filter:blur(10px);
             border-radius: 10px;
+            bor
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
         }
@@ -87,9 +89,15 @@
             text-align: left;
             padding-left: 20px;
             color:#ff9d00 ;
+            
             opacity: 0;
             animation: fadeIn 1s forwards;
         }
+        h2::selection{
+            background-color:#ff9d00;
+            color :white ;
+        }
+        
 
         a {
             text-decoration: none;
@@ -115,7 +123,19 @@
             opacity: 0;
             animation: fadeIn 2.5s forwards;
         }
-
+        p::selection{
+            Background-color:#3cff2b;
+            color : white ;
+            
+        }
+       header h2::selection{
+            background-color :white;
+            color :#158cff ;
+        }
+        footer p::selection{
+            background-color :white;
+            color : #ff5f2b;
+        }
         .skill {
             background: #333;
             color: white;
@@ -200,6 +220,34 @@
             filter: grayscale(0%);
             transform: scale(1.2);
         }
+     /* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 12px; /* Increase width for better visibility */
+}
+
+::-webkit-scrollbar-track {
+    background: #e0c3fc; /* Light color to blend with background */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%); /* Matching gradient */
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%); /* Hover effect */
+}
+
+::-webkit-scrollbar-button {
+    background: #158cff; /* Buttons on the scrollbar */
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-corner {
+    background: #8EC5FC; /* Corner of the scrollbar */
+}
 
         @keyframes fadeIn {
             to {
@@ -216,9 +264,9 @@
     </style>
 </head>
 <body value=1>
-    <header>
+    <header onclick="change_theme()">
         <h2>Priyadharsan</h2>
-        <button onclick="change_theme()" style="margin-right:10px;">🎨</button>
+      <!--  <button onclick="change_theme()" style="margin-right:10px;">🎨</button>-->
     </header>
 
     <main>
@@ -316,4 +364,4 @@
 
     }
 </script>
-</Html>
+                </Html>
