@@ -77,10 +77,10 @@
 
         section {
             margin-bottom: 40px;
-            background: #ffffff88;
+            background: #ffffff4d;
+            border :1px outset white;
             backdrop-filter:blur(10px);
-            border-radius: 10px;
-            bor
+            border-radius: 10px;            
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
         }
@@ -114,16 +114,7 @@
             text-align: center;
             opacity: 0;
             animation: fadeIn 1.5s forwards;
-        }
-
-        #skills {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            opacity: 0;
-            animation: fadeIn 2.5s forwards;
-        }
+        }      
         p::selection{
             Background-color:#3cff2b;
             color : white ;
@@ -140,6 +131,7 @@
         .skill {
             background: #333;
             color: white;
+            flex-grow: 2;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             padding: 15px;
@@ -150,7 +142,23 @@
             animation: slideUp 0.5s forwards;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
+        #skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Space between skills */
+    opacity: 0;
+    animation: fadeIn 2.5s forwards;
+}
 
+#skills h2 {
+    flex-basis: 80%; /* Makes the title occupy the full width */
+    text-align: center; /* Centers the title text */
+    margin-bottom: 20px; /* Adds spacing below the title */
+}
+        .skills h2{
+            flex-basic :100%;
+        }
         .skill:nth-child(1) {
             animation-delay: 0.2s;
         }
@@ -174,6 +182,7 @@
         .skill:hover {
             background-color: #ff6347;
             color: white;
+            padding : 20px;
         }
 
         #projects {
@@ -278,7 +287,8 @@
     
 
         <section id="skills">
-            <h2>My Skills</h2>
+            <h2 style="display:block ; ">My Skills</h2>
+            <br>
             <div class="skill">Python</div>
             <div class="skill">C</div>
             <div class="skill">Javascript</div>
@@ -343,70 +353,128 @@
   "image": "https://i.postimg.cc/zLsXb8YM/IMG-20250110-093720.jpg"
 }
 </script>
+<script>
+    let f = Math.floor(Math.random() * 7); // Randomly set f to 0 through 6
 
-    <script>
-    var f = 1;
     function change_theme() {
         const body = document.body;
         const header = document.querySelector('header');
-        const tt=document.getElementById('tt');
-        const h2 = header.querySelector('h2'); // Targeting h2 inside header specifically
+        const tt = document.getElementById('tt');
         const sections = document.querySelectorAll('section');
         const footer = document.querySelector('footer');
         const title = document.querySelector('title');
         const h2Elements = document.querySelectorAll('h2');
         const pElements = document.querySelectorAll('p');
 
-        if (f % 4 == 0) {
-            // Default theme
-            body.style.background = 'linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%)';
-            header.style.background = '#158cff';
-            footer.style.background = '#ff5f2b';
-            sections.forEach(section => section.style.background = '#ffffff88');
-            title.style.color = '#158cff';
-            h2.style.color = '#fff'; // White color for h2 in header
-            h2Elements.forEach(h2 => h2.style.color = '#ff9d00');
-            pElements.forEach(p => p.style.color = '#333');
-             tt.style.color = '#bfeaff'; 
-            f += 1;
-        } else if (f % 4 == 1) {
-            // Dark theme
-            body.style.background = '#121212';
-            header.style.background = '#333333';
-            footer.style.background = '#1f1f1f';
-            sections.forEach(section => section.style.background = 'rgba(255, 255, 255, 0.1)');
-            title.style.color = '#fff';
-            h2.style.color = '#ff9d00'; // Gold color for h2 in header
-            h2Elements.forEach(h2 => h2.style.color = '#ff9d00');
-            pElements.forEach(p => p.style.color = '#fff');
-           // tt.style.color = '';
-            f += 1;
-        } else if (f % 4 == 2) {
-            // Gradient theme 1
-            body.style.background = 'linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%)';
-            header.style.background = '#ff6347';
-            footer.style.background = '#fa8072';
-            sections.forEach(section => section.style.background = '#ffffffb3');
-            title.style.color = '#ff6347';
-            h2.style.color = '#fff'; // White color for h2 in header
-            h2Elements.forEach(h2 => h2.style.color = '#ff6347');
-            pElements.forEach(p => p.style.color = '#333');
-            tt.style.color = '#ffd5bf';
-            f += 1;
-        } else if (f % 4 == 3) {
-            // Gradient theme 2
-            body.style.background = 'linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%)';
-            header.style.background = '#3cb371';
-            footer.style.background = '#228b22';
-            sections.forEach(section => section.style.background = '#ffffffcc');
-            title.style.color = '#3cb371';
-            h2.style.color = '#fff'; // White color for h2 in header
-            h2Elements.forEach(h2 => h2.style.color = '#3cb371');
-            pElements.forEach(p => p.style.color = '#333');
-            tt.style.color = '#d5ffdf';
-            f += 1;
-        }
-    }
-</script>
+        // Declare theme variables
+        let bodyBg, headerBg, footerBg, sectionBg, sectionBorder, titleColor, h2Color, pColor, ttColor, headerShadow;
 
+        if (f % 7 === 0) {
+            // Default theme
+            bodyBg = 'linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%)';
+            headerBg = '#158cff';
+            footerBg = '#ff5f2b';
+            sectionBg = '#ffffff88';
+            sectionBorder = '#158cff';
+            titleColor = '#158cff';
+            h2Color = '#ff9d00';
+            pColor = '#333';
+            ttColor = '#bfeaff';
+            headerShadow = '0 4px 10px #158cff89';
+        } else if (f % 7 === 1) {
+            // Dark theme
+            bodyBg = '#1a1a2e';
+            headerBg = '#0f3460';
+            footerBg = '#16213e';
+            sectionBg = 'rgba(255, 255, 255, 0.05)';
+            sectionBorder = '#e94560';
+            titleColor = '#e94560';
+            h2Color = '#0aceff';
+            pColor = '#e6e6e6';
+            ttColor = '#ffcc00';
+            headerShadow = '0 4px 10px #e94560';
+        } else if (f % 7 === 2) {
+            // Gradient theme 1
+            bodyBg = 'linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%)';
+            headerBg = '#ff6347';
+            footerBg = '#fa8072';
+            sectionBg = '#ffffffb3';
+            sectionBorder = '#ff6347';
+            titleColor = '#ff6347';
+            h2Color = '#ff6347';
+            pColor = '#333';
+            ttColor = '#ffd5bf';
+            headerShadow = '0 4px 10px #ff6347';
+        } else if (f % 7 === 3) {
+            // Galaxy Vibes Theme
+            bodyBg = 'linear-gradient(120deg, #141E30 0%, #243B55 100%)';
+            headerBg = '#3a6073';
+            footerBg = '#162c47';
+            sectionBg = 'rgba(255, 255, 255, 0.1)';
+            sectionBorder = '#19d3da';
+            titleColor = '#19d3da';
+            h2Color = '#95fff5';
+            pColor = '#dcdcdc';
+            ttColor = '#4fd3c4';
+            headerShadow = '0 4px 10px #19d3da';
+        } else if (f % 7 === 4) {
+            // Midnight Blue Theme
+            bodyBg = 'linear-gradient(60deg, #1c92d2 0%, #f2fcfe 100%)';
+            headerBg = '#0f4c75';
+            footerBg = '#1b262c';
+            sectionBg = '#ffffff20';
+            sectionBorder = '#3282b8';
+            titleColor = '#3282b8';
+            h2Color = '#051c1c';
+            pColor = '#005252';
+            ttColor = '#d1e8ff';
+            headerShadow = '0 4px 10px #3282b8';
+        } else if (f % 7 === 5) {
+            // Tropical Paradise Theme
+            bodyBg = 'linear-gradient(45deg, #43C6AC 0%, #F8FFAE 100%)';
+            headerBg = '#4caf50';
+            footerBg = '#ff9800';
+            sectionBg = '#ffffffcc';
+            sectionBorder = '#43C6AC';
+            titleColor = '#4caf50';
+            h2Color = '#ff5722';
+            pColor = '#333';
+            ttColor = '#c1ffd5';
+            headerShadow = '0 4px 10px #43C6AC';
+        } else if (f % 7 === 6) {
+            // Vibrant Forest Theme
+            bodyBg = 'linear-gradient(120deg, #43cea2 0%, #185a9d 100%)';
+            headerBg = '#2e7d32';
+            footerBg = '#388e3c';
+            sectionBg = 'rgba(255, 255, 255, 0.9)';
+            sectionBorder = '#66bb6a';
+            titleColor = '#2e7d32';
+            h2Color = '#1b5e20';
+            pColor = '#333';
+            ttColor = '#d4e157';
+            headerShadow = '0 4px 10px #66bb6a';
+        }
+
+        // Apply theme styles
+        body.style.background = bodyBg;
+        header.style.background = headerBg;
+        header.style.boxShadow = headerShadow; // Apply dynamic box-shadow
+        footer.style.background = footerBg;
+        sections.forEach(section => {
+            section.style.background = sectionBg;
+            section.style.borderColor = sectionBorder;
+            section.style.borderWidth = '1px';
+            section.style.borderStyle = 'outset';
+        });
+        title.style.color = titleColor;
+        h2Elements.forEach(h2 => h2.style.color = h2Color);
+        pElements.forEach(p => p.style.color = pColor);
+        tt.style.color = ttColor;
+
+        f += 1;
+    }
+
+    // Apply random theme when the page loads
+    window.onload = change_theme;
+</script>t>
                 </Html>
