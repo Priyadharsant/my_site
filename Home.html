@@ -2,24 +2,31 @@
 <html lang="en">
 <head>
     <meta property="og:title" content="Priyadharsan - AI and Full-Stack Developer">
-<meta property="og:description" content="Explore my skills, projects, and achievements in AI, data science, and development.">
-<meta property="og:image" content="https://i.postimg.cc/zLsXb8YM/IMG-20250110-093720.jpg">
-<meta property="og:url" content="https://priyadharsan.netlify.app">
-<meta property="og:type" content="website">
+    <meta property="og:description" content="Explore my skills, projects, and achievements in AI, data science, and development.">
+    <meta property="og:image" content="https://i.postimg.cc/zLsXb8YM/IMG-20250110-093720.jpg">
+    <meta property="og:url" content="https://priyadharsan.netlify.app">
+    <meta property="og:type" content="website">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Priyadharsan</title>
     <link rel="icon" type="image/*" href="https://i.postimg.cc/zLsXb8YM/IMG-20250110-093720.jpg">
     <style>
-         
+        /* General Styles */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background:linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
-           color: #333;
+            background: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+            color: #333;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
+        
+        }
+
+        body.dark-mode {
+            background: #1a1a2e;
+            color: #e6e6e6;
         }
 
         main {
@@ -33,6 +40,11 @@
             color: white;
             text-align: center;
             padding: 10px 0;
+            transition: background 0.3s;
+        }
+
+        body.dark-mode footer {
+            background: #16213e;
         }
 
         header {
@@ -42,17 +54,23 @@
             align-items: center;
             justify-content: space-between;
             padding: 10px 20px;
-            position: sticky ;
+            position: sticky;
             top: 0;
-            backdrop-filter:blur(20px;)
+            backdrop-filter: blur(20px);
             width: 90%;
             z-index: 1000;
             box-shadow: 0 4px 10px #158cff89;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        body.dark-mode header {
+            background: #0f3460;
+            box-shadow: 0 4px 10px #e94560;
         }
 
         header h2 {
             margin: 0;
-            color:#bfeaff ;
+            color: #bfeaff;
             font-size: 24px;
             padding-left: 10px;
         }
@@ -71,63 +89,55 @@
             color: #ff6347;
         }
 
-        main {
-            padding: 80px 20px 20px;
-        }
-
         section {
             margin-bottom: 40px;
             background: #ffffff4d;
-            border :1px outset white;
-            backdrop-filter:blur(10px);
-            border-radius: 10px;            
+            border: 1px outset white;
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        body.dark-mode section {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: #e94560;
         }
 
         section h2 {
             font-size: 28px;
             text-align: left;
             padding-left: 20px;
-            color:#ff9d00 ;
-            
+            color: #ff9d00;
             opacity: 0;
             animation: fadeIn 1s forwards;
         }
-        h2::selection{
-            background-color:#ff9d00;
-            color :white ;
-        }
-        
 
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: color 0.3s ease;
+        body.dark-mode section h2 {
+            color: #0aceff;
         }
 
-        a:hover {
-            color: #ff6347;
+        h2::selection {
+            background-color: #ff9d00;
+            color: white;
         }
 
-        section p {
-            text-align: center;
-            opacity: 0;
-            animation: fadeIn 1.5s forwards;
-        }      
-        p::selection{
-            Background-color:#000000;
-            color : white ; 
-            
+        p::selection {
+            background-color: #000000;
+            color: white;
         }
-       header h2::selection{
-            background-color :white;
-            color :#158cff ;
+
+        header h2::selection {
+            background-color: white;
+            color: #158cff;
         }
-        footer p::selection{
-            background-color :white;
-            color : #ff5f2b;
+
+        footer p::selection {
+            background-color: white;
+            color: #ff5f2b;
         }
+
         .skill {
             background: #333;
             color: white;
@@ -142,48 +152,21 @@
             animation: slideUp 0.5s forwards;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
-        #skills {
-    display: flex;
-    flex-wrap: wrap;
-    cursor:pointer;
-    justify-content: center;
-    gap: 20px; /* Space between skills */
-    opacity: 0;
-    animation: fadeIn 2.5s forwards;
-}
-
-#skills h2 {
-    flex-basis: 80%; /* Makes the title occupy the full width */
-    text-align: center; /* Centers the title text */
-    margin-bottom: 20px; /* Adds spacing below the title */
-}
-        .skills h2{
-            flex-basic :100%;
-        }
-        .skill:nth-child(1) {
-            animation-delay: 0.2s;
-        }
-
-        .skill:nth-child(2) {
-            animation-delay: 0.4s;
-        }
-
-        .skill:nth-child(3) {
-            animation-delay: 0.6s;
-        }
-
-        .skill:nth-child(4) {
-            animation-delay: 0.8s;
-        }
-
-        .skill:nth-child(5) {
-            animation-delay: 1s;
-        }
 
         .skill:hover {
             background-color: #ff6347;
             color: white;
-            padding : 20px;
+            padding: 20px;
+        }
+
+        #skills {
+            display: flex;
+            flex-wrap: wrap;
+            cursor: pointer;
+            justify-content: center;
+            gap: 20px;
+            opacity: 0;
+            animation: fadeIn 2.5s forwards;
         }
 
         #projects {
@@ -192,6 +175,7 @@
             justify-content: center;
             gap: 20px;
             opacity: 0;
+            text-decoration:none ;
             animation: fadeIn 3s forwards;
         }
 
@@ -207,10 +191,6 @@
 
         .project:hover {
             transform: scale(1.05);
-        }
-
-        .project h3 {
-            margin: 10px 0;
         }
 
         .social-links {
@@ -231,65 +211,122 @@
             filter: grayscale(0%);
             transform: scale(1.2);
         }
-     /* Custom scrollbar */
-::-webkit-scrollbar {
-    width: 12px; /* Increase width for better visibility */
-}
 
-::-webkit-scrollbar-track {
-    background: #e0c3fc; /* Light color to blend with background */
-    border-radius: 10px;
-}
+        /* Like Button */
+        .like-button {
+            background: #ff5f2b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
 
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%); /* Matching gradient */
-    border-radius: 10px;
-    transition: background 0.3s ease;
-}
+        .like-button:hover {
+            background: #ff9d00;
+            transform: scale(1.05);
+        }
 
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%); /* Hover effect */
-}
+        .like-button.liked {
+            background: #ff9d00;
+        }
 
-::-webkit-scrollbar-button {
-    background: #158cff; /* Buttons on the scrollbar */
-    border-radius: 5px;
-}
+        .like-button.liked::after {
+            content: '❤️';
+        }
 
-::-webkit-scrollbar-corner {
-    background: #8EC5FC; /* Corner of the scrollbar */
-}
+        .like-count {
+            font-size: 18px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
 
+        /* Loading Animation */
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+a {
+    text-decoration: none;
+    color: inherit; /* Keeps the default text color */
+}
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #ff6347;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Back-to-Top Button */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ff6347;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            z-index: 1000;
+        }
+
+        #back-to-top:hover {
+            background: #ff5f2b;
+        }
+
+        /* Animations */
         @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
+            to { opacity: 1; }
         }
 
         @keyframes slideUp {
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            to { transform: translateY(0); opacity: 1; }
         }
     </style>
 </head>
-<body value=1>
-    <header onclick="change_theme()">
+<body>
+    <!-- Loading Animation -->
+    <div id="loading">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
         <h2 id="tt">Priyadharsan</h2>
-      <!--  <button onclick="change_theme()" style="margin-right:10px;">🎨</button>-->
+        <button id="theme-toggle">🌙</button>
     </header>
 
+    <!-- Main Content -->
     <main>
         <section id="about">
             <h2>About Me</h2>
             <p>Hello! I am Priyadharsan, a passionate developer specializing in AI, data science, and full-stack development. I am dedicated to building solutions that make a difference!</p>
         </section>
-    
 
         <section id="skills">
-            <h2 style="display:block ; ">My Skills</h2>
-            <br>
+            <h2>My Skills</h2>
             <div class="skill">Python</div>
             <div class="skill">C</div>
             <div class="skill">SQL</div>
@@ -300,17 +337,27 @@
         <section id="projects">
             <h2>My Projects</h2>
             <a href="asuran.html">
-            <div class="project">
-                <h3>KMV ASURAN</h3>
-                <p>Website for gaming YouTuber</p>
-            </div>
+                <div class="project">
+                    <h3>KMV ASURAN</h3>
+                    <p>Website for gaming YouTuber</p>
+                </div>
             </a>
             <a href="cal.html">
-            <div class="project">
-                <h3>Simple Calculator</h3>
-                <p>Simple mathematical function website </p>
-            </div>
+                <div class="project">
+                    <h3>Simple Calculator</h3>
+                    <p>Simple mathematical function website</p>
+                </div>
             </a>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form id="contact-form">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
         </section>
 
         <section>
@@ -327,155 +374,106 @@
                 </a>
             </div>
         </section>
-    </main>
-    <select id="eng" style="display:none;">
-        <option value="0">0</option>
-    </select>
-    <p id="en" ></p>
 
+        <!-- Like Button Section -->
+        <section>
+            <h2>Like My Work?</h2>
+            <button class="like-button" id="like-button">👍 Like</button>
+            <span class="like-count" id="like-count">0</span>
+        </section>
+    </main>
+
+    <!-- Back-to-Top Button -->
+    <button id="back-to-top" title="Go to top">↑</button>
+
+    <!-- Footer -->
     <footer>
         <p>© 2025 Priyadharsan.</p>
     </footer>
-</body>
 
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Priyadharsan",
-  "url": "https://priyadharsan.netlify.app",
-  "sameAs": [
-    "https://github.com/Priyadharsan852484",
-    "https://in.linkedin.com/in/priyadharsan-t-2b5810327",
-    "https://onecompiler.com/users/42j8ym45r"
-  ],
-  "jobTitle": "AI Developer and Full-Stack Developer",
-  "description": "Passionate about AI, data science, and building impactful solutions.",
-  "image": "https://i.postimg.cc/zLsXb8YM/IMG-20250110-093720.jpg"
-}
-</script>
-<script>
-    let f = Math.floor(Math.random() * 7); // Randomly set f to 0 through 6
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS
+        (function() {
+            emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS User ID
+        })();
 
-    function change_theme() {
-        const body = document.body;
-        const header = document.querySelector('header');
-        const tt = document.getElementById('tt');
-        const sections = document.querySelectorAll('section');
-        const footer = document.querySelector('footer');
-        const title = document.querySelector('title');
-        const h2Elements = document.querySelectorAll('h2');
-        const pElements = document.querySelectorAll('p');
-
-        // Declare theme variables
-        let bodyBg, headerBg, footerBg, sectionBg, sectionBorder, titleColor, h2Color, pColor, ttColor, headerShadow;
-
-        if (f % 7 === 0) {
-            // Default theme
-            bodyBg = 'linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%)';
-            headerBg = '#158cff';
-            footerBg = '#ff5f2b';
-            sectionBg = '#ffffff88';
-            sectionBorder = '#158cff';
-            titleColor = '#158cff';
-            h2Color = '#ff9d00';
-            pColor = '#333';
-            ttColor = '#bfeaff';
-            headerShadow = '0 4px 10px #158cff89';
-        } else if (f % 7 === 1) {
-            // Dark theme
-            bodyBg = '#1a1a2e';
-            headerBg = '#0f3460';
-            footerBg = '#16213e';
-            sectionBg = 'rgba(255, 255, 255, 0.05)';
-            sectionBorder = '#e94560';
-            titleColor = '#e94560';
-            h2Color = '#0aceff';
-            pColor = '#e6e6e6';
-            ttColor = '#ffcc00';
-            headerShadow = '0 4px 10px #e94560';
-        } else if (f % 7 === 2) {
-            // Gradient theme 1
-            bodyBg = 'linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%)';
-            headerBg = '#ff6347';
-            footerBg = '#fa8072';
-            sectionBg = '#ffffffb3';
-            sectionBorder = '#ff6347';
-            titleColor = '#ff6347';
-            h2Color = '#ff6347';
-            pColor = '#333';
-            ttColor = '#ffd5bf';
-            headerShadow = '0 4px 10px #ff6347';
-        } else if (f % 7 === 3) {
-            // Galaxy Vibes Theme
-            bodyBg = 'linear-gradient(120deg, #141E30 0%, #243B55 100%)';
-            headerBg = '#3a6073';
-            footerBg = '#162c47';
-            sectionBg = 'rgba(255, 255, 255, 0.1)';
-            sectionBorder = '#19d3da';
-            titleColor = '#19d3da';
-            h2Color = '#95fff5';
-            pColor = '#dcdcdc';
-            ttColor = '#4fd3c4';
-            headerShadow = '0 4px 10px #19d3da';
-        } else if (f % 7 === 4) {
-            // Midnight Blue Theme
-            bodyBg = 'linear-gradient(60deg, #1c92d2 0%, #f2fcfe 100%)';
-            headerBg = '#0f4c75';
-            footerBg = '#1b262c';
-            sectionBg = '#ffffff20';
-            sectionBorder = '#3282b8';
-            titleColor = '#3282b8';
-            h2Color = '#051c1c';
-            pColor = '#005252';
-            ttColor = '#d1e8ff';
-            headerShadow = '0 4px 10px #3282b8';
-        } else if (f % 7 === 5) {
-            // Tropical Paradise Theme
-            bodyBg = 'linear-gradient(45deg, #43C6AC 0%, #F8FFAE 100%)';
-            headerBg = '#4caf50';
-            footerBg = '#ff9800';
-            sectionBg = '#ffffffcc';
-            sectionBorder = '#43C6AC';
-            titleColor = '#4caf50';
-            h2Color = '#ff5722';
-            pColor = '#333';
-            ttColor = '#c1ffd5';
-            headerShadow = '0 4px 10px #43C6AC';
-        } else if (f % 7 === 6) {
-            // Vibrant Forest Theme
-            bodyBg = 'linear-gradient(120deg, #43cea2 0%, #185a9d 100%)';
-            headerBg = '#2e7d32';
-            footerBg = '#388e3c';
-            sectionBg = 'rgba(255, 255, 255, 0.9)';
-            sectionBorder = '#66bb6a';
-            titleColor = '#2e7d32';
-            h2Color = '#1b5e20';
-            pColor = '#333';
-            ttColor = '#d4e157';
-            headerShadow = '0 4px 10px #66bb6a';
-        }
-
-        // Apply theme styles
-        body.style.background = bodyBg;
-        header.style.background = headerBg;
-        header.style.boxShadow = headerShadow; // Apply dynamic box-shadow
-        footer.style.background = footerBg;
-        sections.forEach(section => {
-            section.style.background = sectionBg;
-            section.style.borderColor = sectionBorder;
-            section.style.borderWidth = '1px';
-            section.style.borderStyle = 'outset';
+        // Loading Animation
+        window.addEventListener('load', () => {
+            const loading = document.getElementById('loading');
+            loading.style.display = 'none';
         });
-        title.style.color = titleColor;
-        h2Elements.forEach(h2 => h2.style.color = h2Color);
-        pElements.forEach(p => p.style.color = pColor);
-        tt.style.color = ttColor;
 
-        f += 1;
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            themeToggle.textContent = body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        });
+
+        // Back-to-Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Contact Form Submission with EmailJS
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Send email using EmailJS
+            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this) // Replace with your Service ID and Template ID
+                .then(function(response) {
+                    alert('Thank you for reaching out! I will get back to you soon.');
+                    document.getElementById('contact-form').reset(); // Reset the form
+                }, function(error) {
+                    alert('Oops! Something went wrong. Please try again.');
+                });
+        });
+
+        // Like Button Functionality
+        // Like Button Functionality
+const likeButton = document.getElementById('like-button');
+const likeCount = document.getElementById('like-count');
+
+// Load like count from localStorage
+let likes = parseInt(localStorage.getItem('likes')) || 0;
+likeCount.textContent = likes;
+
+// Check if user has already liked in this session
+const hasLiked = sessionStorage.getItem('hasLiked');
+if (hasLiked) {
+    likeButton.disabled = true;
+    likeButton.textContent = '❤️ Liked';
+    likeButton.classList.add('liked');
+}
+
+likeButton.addEventListener('click', () => {
+    if (!sessionStorage.getItem('hasLiked')) {
+        likes++;
+        likeCount.textContent = likes;
+        localStorage.setItem('likes', likes);
+        sessionStorage.setItem('hasLiked', 'true');
+        likeButton.classList.add('liked');
+        likeButton.textContent = '❤️ Liked';
+        likeButton.disabled = true;
     }
-
-    // Apply random theme when the page loads
-    window.onload = change_theme;
-</script>
-                </Html>
+});
+    </script>
+</body>
+    </html>
