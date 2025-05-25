@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 - Page Not Found</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #8EC5FC 0%, #E0C3FC 100%);
+      overflow: hidden;
+      color: #333;
+    }
+
+    .container {
+      text-align: center;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 1.5s ease;
+    }
+
+    .code {
+      font-size: 100px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .emoji {
+      font-size: 90px;
+      display: inline-block;
+      animation: shake 1s infinite ease-in-out;
+    }
+
+    .message {
+      font-size: 22px;
+      margin-top: 20px;
+      color: #158cff;
+    }
+
+    .home-button {
+      display: inline-block;
+      
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .home-button:hover {
+      background: #ff5f2b;
+    }
+
+    @keyframes shake {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(8deg); }
+      50% { transform: rotate(-8deg); }
+      75% { transform: rotate(5deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .code {
+        font-size: 60px;
+      }
+
+      .emoji {
+        font-size: 60px;
+      }
+
+      .message {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="code">
+      <span>4</span>
+      <span class="emoji"><a href="https://priyadharsan.netlify.app" class="home-button">😔</a></span>
+      <span>4</span>
+    </div>
+    <div class="message">Oops! The page you're looking for doesn’t exist.</div>
+    
+  </div>
+</body>
+</html>
