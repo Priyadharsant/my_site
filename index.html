@@ -49,20 +49,53 @@
       color: #158cff;
     }
 
-    .home-button {
+    .home-button,.link{
       display: inline-block;
       
       color: white;
       font-weight: bold;
       border-radius: 8px;
       text-decoration: none;
-      transition: background 0.3s ease;
+      transition: background 7s ease;
+      animation: fadeIn 1s ease; 
     }
 
     .home-button:hover {
       background: #ff5f2b;
     }
-
+    
+    .link {
+        display : none;
+    }
+    
+    a{
+        color : white ;
+        text-decoration : none;
+        outline: none;
+        -webkit-tap-highlight-color: transparent ;
+    }
+    
+    .link{
+        background : #ff5f2b;
+        padding : 10px ;
+        border-radius : 10px ;
+    }
+    
+    body:hover .link{
+        display : inline-flex ;
+        transition: background 0.3s ease;
+    }
+    
+    a:focus {
+        outline: none;
+    }
+    
+    .link:hover
+    {
+  transform: scale(1.15); 
+  
+transition: transform 4s ease-in-out;
+    }
     @keyframes shake {
       0% { transform: rotate(0deg); }
       25% { transform: rotate(8deg); }
@@ -75,9 +108,10 @@
       from { opacity: 0; transform: translateY(-30px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    
 
     @media (max-width: 600px) {
-      .code {
+      .code{
         font-size: 60px;
       }
 
@@ -91,15 +125,19 @@
     }
   </style>
 </head>
-<body title="Please click emoji">
+<body>
   <div class="container">
     <div class="code">
       <span>4</span>
-      <span class="emoji"><a href="https://priyadharsan.netlify.app/home" class="home-button" title="Please click me!">😔</a></span>
+      <span class="emoji">😔</span>
       <span>4</span>
     </div>
     <div class="message">Oops! The page you're looking for doesn’t exist.</div>
-    
+    <br>
+    <span class ="link">
+        <a href="/Home.html">Home</a>
+    </span >
   </div>
+  
 </body>
 </html>
